@@ -945,7 +945,7 @@
       };
 
       const cylinderRadius = 0.2;
-      const cylinderGeometry = new THREE.CylinderGeometry(cylinderRadius, cylinderRadius, cylinderRadius / 4, 6);
+      const cylinderGeometry = new THREE.CylinderGeometry(cylinderRadius, cylinderRadius, cylinderRadius, 6);
       const padding = 0.1;
       const distanceBetweenHexagonCores = (2 * Math.sqrt(3.0) / 2.0) * cylinderRadius + padding;
       const offsetX = Math.sin(Math.PI / 6.0) * distanceBetweenHexagonCores;
@@ -1180,11 +1180,11 @@
         case baseBean + 48 + 12 + 9:
         case baseBean + 48 + 12 + 9 + 48:
           this.cameraShakeVelocity.x = (this.camera.position.x -
-            this.cameraPreviousPosition.x) * 0.5;
+            this.cameraPreviousPosition.x) * 3.5;
           this.cameraShakeVelocity.y = (this.camera.position.y -
-            this.cameraPreviousPosition.y) * 0.5;
+            this.cameraPreviousPosition.y) * 3.5;
           this.cameraShakeVelocity.z = (this.camera.position.z -
-            this.cameraPreviousPosition.z) * 0.5;
+            this.cameraPreviousPosition.z) * 3.5;
           this.cameraShakeAngularVelocity.x = (Math.random() - 0.5) * 0.01;
           this.cameraShakeAngularVelocity.y = (Math.random() - 0.5) * 0.01;
           this.cameraShakeAngularVelocity.z = (Math.random() - 0.5) * 0.01;
@@ -1259,6 +1259,13 @@
           }
         }
       }
+
+      this.camera.up = new THREE.Vector3(0, -1, 0);
+      this.camera.position.x = Math.sin(1.5+frame/160)*45;
+      this.camera.position.z = Math.cos(1.5+frame/160)*45;
+      this.camera.lookAt(new THREE.Vector3(0, 0, 0));
+      this.camera.fov = 18;
+      this.camera.updateProjectionMatrix();
     }
 
     render(renderer) {
