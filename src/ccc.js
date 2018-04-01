@@ -10,6 +10,7 @@
 
       this.camera.near = 0.001;
       this.camera.far = 400.;
+      this.camera.fov = 75;
       this.camera.updateProjectionMatrix();
       this.throb = 0;
 
@@ -122,13 +123,6 @@
         step: (a, b, t) => (t >= 1 ? b : a),
       };
 
-      if (BEAN > 57 * 48) {
-        this.camera.fov = 80;
-        this.camera.updateProjectionMatrix();
-      } else {
-        this.camera.fov = 35;
-        this.camera.updateProjectionMatrix();
-      }
       this.cameraPositionPath = this.path([{
         bean: 54 * 48,
         easing: 'step',
@@ -454,6 +448,14 @@
         lerp(225 / 255, 1, 0.2 + 0.5 * this.throb),
         lerp(93 / 255, 1, 0.2 + 0.5 * this.throb)
       );
+
+      const camerat = clamp(0, (frame - 6761)/(7700-6761), 1);
+      this.camera.position.set(
+        lerp(-59,-17,camerat),
+        lerp(-171,-49,camerat),
+        lerp(306,88,camerat)
+      );
+      this.camera.lookAt(new THREE.Vector3(0,0,0));
     }
 
     render(renderer) {
