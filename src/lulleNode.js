@@ -24,6 +24,10 @@
       demo.nm.nodes.bloom.opacity = easeOut(10, 2.0, Math.pow((frame - FRAME_FOR_BEAN(1824)) / (
         FRAME_FOR_BEAN(1824 + 24) - FRAME_FOR_BEAN(1824)), 2));
 
+      if(BEAN >= 2016) {
+        demo.nm.nodes.bloom.opacity = 0;
+      }
+
       if (BEAT) {
         switch (BEAN) {
           case startBEAN + 6:
@@ -75,7 +79,11 @@
         this.myCamera.position.set(-1, 0, 15);
       }
 
-      this.uniforms.cameraDirection.value = cameraDirection;
+      this.myCamera.position.x = Math.sin(frame / 100)  * 50;
+      this.myCamera.position.z = Math.cos(frame / 100)  * 50;
+      this.myCamera.lookAt(new THREE.Vector3(0, 0, 0));
+
+      this.uniforms.cameraDirection.value = this.myCamera.rotation;
       this.uniforms.myCameraPosition.value = this.myCamera.position;
     }
   }

@@ -43,7 +43,8 @@
       //Camera
       var zoom = 5.8;
       this.camera = new THREE.OrthographicCamera(-zoom * 16, zoom * 16, zoom * 9, -zoom * 9, 1, 100000);
-      this.camera.position.z = 10000;
+      this.camera = new THREE.PerspectiveCamera( 45, 16 / 9, 1, 100000 );
+      this.camera.position.z = 100;
 
       // Scene background
       this.cube = new THREE.Mesh(new THREE.BoxGeometry(196, 109, 0.1),
@@ -486,6 +487,7 @@
 
     update(frame) {
       super.update(frame);
+      this.frame = frame;
       demo.nm.nodes.bloom.opacity = 0;
       this.frame = frame;
 
@@ -997,6 +999,11 @@
       }
       this.ctx.restore();
       this.canvasTexture.needsUpdate = true;
+
+      this.camera.position.x = Math.sin(this.frame / 100) * 100;
+      this.camera.position.y = Math.cos(this.frame / 100) * 50;
+      this.camera.lookAt(new THREE.Vector3(0, 0, 0));
+
       super.render(renderer);
     }
 
