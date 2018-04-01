@@ -452,6 +452,8 @@
 
       this.ctx.translate(8, 4.5);
       this.ctx.rotate(this.cameraR);
+      this.ctx.scale(0.4, 0.4);
+      this.ctx.translate(8, 4.5);
       const scale = 1 / easeOut(8, 1, (frame - FRAME_FOR_BEAN(672)) / (
             FRAME_FOR_BEAN(672 + 3) - FRAME_FOR_BEAN(672)));
       this.ctx.scale(scale, scale);

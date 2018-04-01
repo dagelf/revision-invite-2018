@@ -483,6 +483,9 @@
       this.camera.rotation.z = easeIn(0, Math.PI / 2.0, morphRacingWrapperMixer);
       this.camera.position.x = easeIn(0, -21, morphRacingWrapperMixer);
       this.camera.position.z = easeIn(cameraPosition.z, 47, morphRacingWrapperMixer);
+      this.camera.position.x = 0;
+      this.camera.position.y = 0;
+      this.camera.position.z = lerp(100, 2000, (frame - 2300) / 1000);
       this.largeLettersWrapperObject.position.x = easeIn(0, 10, morphRacingWrapperMixer);
 
       const scale = Math.max(Math.sqrt(this.throb), 0.01);

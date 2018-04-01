@@ -327,9 +327,15 @@
       this.camera.rotation.x += this.cameraShakeRotation.x;
       this.camera.rotation.y += this.cameraShakeRotation.y;
       this.camera.rotation.z += this.cameraShakeRotation.z;
+
       /*
       */
       this.camera.position.copy(cameraPosition);
+
+      this.camera.position.x = Math.cos(frame / 200 + 2.5) * 200;
+      this.camera.position.y = 100;
+      this.camera.position.z = Math.sin(frame / 200 + 2.5) * 400;
+      this.camera.lookAt(new THREE.Vector3(0, 0, 0));
 
       demo.nm.nodes.bloom.opacity = this.blinkThrob;
     }
