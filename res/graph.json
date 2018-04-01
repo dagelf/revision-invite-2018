@@ -3,7 +3,7 @@
     "id": "root",
     "type": "NIN.RootNode",
     "connected": {
-      "screen": "metaballBlend.render"
+      "screen": "yolooverlayer.render"
     }
   },
   {
@@ -485,6 +485,16 @@
     },
     "connected": {
       "tDiffuse": "Metatron.render"
+    }
+  },
+  {
+    "id": "yolooverlayer",
+    "type": "yoloOverlayer",
+    "options": {
+      "shader": "metatronoverlayer"
+    },
+    "connected": {
+      "tDiffuse": "metaballBlend.render"
     }
   },
   {
