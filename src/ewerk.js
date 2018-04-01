@@ -269,11 +269,11 @@
 
         this.globeContainer.rotation.x = -Math.PI / 2 + .8;
         this.camera.lookAt(new THREE.Vector3(0, -200, 0));
-      } else if (frame <= frame2) {
+      } else if (frame <= frame3) {
         this.camera.position.set(
-          lerp(0, -400, (frame - frame2 + 50) / 50),
-          lerp(900, 800, (frame - frame2 + 50) / 50),
-          lerp(400, 400, (frame - frame2 + 50) / 50)
+          lerp(0, -400, (frame - frame1) / (frame3 - frame1)),
+          lerp(900, 800, (frame - frame1) / (frame3-frame1)),
+          lerp(400, 400, (frame - frame1) / (frame3-frame1))
         );
 
         this.camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -283,15 +283,6 @@
         this.globeContainer.scale.set(scale, scale, scale);
 
         this.camera.lookAt(new THREE.Vector3(0, -200, 0));
-      } else if (frame <= frame3) {
-        this.camera.position.set(
-          lerp(-400, 88, (frame - frame3 + 40) / 40),
-          lerp(800, -16, (frame - frame3 + 40) / 40),
-          lerp(400, 0, (frame - frame3 + 40) / 40)
-        );
-        const scale = easeIn(1.7, 1.8, (frame - frame3 + 40) / 40);
-        this.globeContainer.scale.set(scale, scale, scale);
-        this.camera.lookAt(new THREE.Vector3(0, 0, 0));
       } else if (frame <= frame4) {
         this.camera.position.set(
           lerp(88, 88, (frame - frame3) / (frame4 - frame3)),
