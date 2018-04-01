@@ -155,7 +155,7 @@
         selectedScene = this.inputs._20_A_theme_breakdown_2;
       } else if (BEAN < 48 * 78.5) {
         selectedScene = this.inputs._21_third_B_theme_1;
-        demo.nm.nodes.yolooverlayer.text = 'FLOATING CANVASES';
+        demo.nm.nodes.yolooverlayer.text = 'LAG-SPIKES :D';
       } else if (BEAN < 48 * 80) {
         selectedScene = this.inputs._22_third_B_theme_2;
         demo.nm.nodes.yolooverlayer.text = 'TOILET TUNNEL';
