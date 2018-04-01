@@ -58,10 +58,12 @@
       this.uniforms.tDiffuse.value = this.inputs.tDiffuse.getValue();
       this.uniforms.translationOverX.value = 0;
       this.uniforms.translationUnderX.value = 0;
+      this.frame = frame;
     }
 
 
     render(renderer) {
+      this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
       this.ctx.save();
       this.ctx.scale(GU, GU);
 
@@ -82,9 +84,12 @@
         this.ctx.font = 'bold 1pt schmalibre';
         this.ctx.fillStyle = 'white';
         this.ctx.strokeStyle = 'black';
-      this.ctx.lineWidth = 0.2;
-        this.ctx.strokeText('BEHIND THE SCENES!', 0, 0.51);
-        this.ctx.fillText('BEHIND THE SCENES!', 0, 0.51);
+      this.ctx.lineWidth = 0.15;
+      const text = this.text || '';
+      const scale = 1 + 0.01 * Math.sin(this.frame * Math.PI * 2 / 60 / 60 * 115);
+      this.ctx.scale(scale, scale);
+        this.ctx.strokeText(text, 0, 0.51);
+        this.ctx.fillText(text, 0, 0.51);
         this.ctx.restore();
 
       this.ctx.font = 'bold 1pt schmalibre';
@@ -94,7 +99,7 @@
       this.ctx.fillStyle = 'white';
       this.ctx.translate(-4.5, 2.5);
       this.ctx.translate(0, 1.5);
-      const bouncyScale = 1;
+      const bouncyScale = Math.cos(this.frame / 100);
       this.ctx.scale(1 / GU, 1 / GU * bouncyScale);
       this.ctx.translate(0, -1.5 * GU);
       const step = 4;
