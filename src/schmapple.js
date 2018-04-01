@@ -317,7 +317,7 @@
       this.ctx.restore();
       this.ctx.save();
 
-      const mixer = lerp(1.0, 0.6, (this.frame - 1200) / 80);
+      const mixer = lerp(1.0, 0.40, (this.frame - 1200) / 80);
       this.ctx.scale(mixer, 1.0);
 
       const shakeT = lerp(0, 1, (this.frame - FRAME_FOR_BEAN(624)) / (
