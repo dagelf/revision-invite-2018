@@ -122,6 +122,13 @@
         step: (a, b, t) => (t >= 1 ? b : a),
       };
 
+      if (BEAN > 57 * 48) {
+        this.camera.fov = 80;
+        this.camera.updateProjectionMatrix();
+      } else {
+        this.camera.fov = 35;
+        this.camera.updateProjectionMatrix();
+      }
       this.cameraPositionPath = this.path([{
         bean: 54 * 48,
         easing: 'step',
