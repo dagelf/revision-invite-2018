@@ -43,7 +43,7 @@
     }
 
     beforeUpdate() {
-      if (demo) {
+      if (demo && demo.music) {
         demo.music.setPlaybackRate(1.25);
       }
       this.inputs._00_silence.enabled = false;
