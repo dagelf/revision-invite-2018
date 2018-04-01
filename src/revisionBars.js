@@ -241,9 +241,10 @@
       const cameraRotate = this.getPoint(this.cameraRotatePath, frame);
       this.cameraPreviousX = this.outputs.cameraValues.value.cameraX;
       this.cameraPreviousY = this.outputs.cameraValues.value.cameraY;
+
       this.outputs.cameraValues.value.cameraX = cameraX + this.cameraX;
       this.outputs.cameraValues.value.cameraY = cameraY + this.cameraY;
-      this.outputs.cameraValues.value.cameraZoom = cameraZoom;
+      this.outputs.cameraValues.value.cameraZoom = 0.3;
       this.outputs.cameraValues.value.cameraRotate = cameraRotate + this.cameraR;
     }
 
