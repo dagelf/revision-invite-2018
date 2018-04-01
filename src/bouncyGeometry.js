@@ -1096,7 +1096,7 @@
         text = 'DIFFERENT';
         fontScaler = 2.2;
       }
-      const pink = 'rgb(255, 73, 130)';
+      const pink = 'rgba(255, 73, 130, 0.5)';
       const backgroundColor = foregroundColor === white ? pink : white;
 
       // TEXT
@@ -1119,7 +1119,7 @@
       this.camera.updateProjectionMatrix();
       this.camera.position.x = 0;
       this.camera.position.y = 0;
-      this.camera.position.z = 9;
+      this.camera.position.z = 29;
       this.camera.lookAt(new THREE.Vector3(0, 0, 0));
     }
 
