@@ -35,7 +35,7 @@ float sphere(vec3 p, float s) {
 float dissphere( vec3 p, float s)
 {
     float d1 = sphere(p, s);
-    float d2 = sin(1.2 * p.x) * sin(1.2 * p.y) * sin(2.2 * p.z);
+    float d2 = 0.05 * sin(9.2 * p.x) * sin(9.2 * p.y) * sin(9.2 * p.z);
     return d1+d2;
 }
 
