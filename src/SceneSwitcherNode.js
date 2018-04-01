@@ -43,6 +43,7 @@
     }
 
     beforeUpdate() {
+      demo.music.setPlaybackRate(1.25);
       this.inputs._00_silence.enabled = false;
       this.inputs._01_pre_intro_with_car_rev_sounds.enabled = false;
       this.inputs._02_intro_1.enabled = false;
