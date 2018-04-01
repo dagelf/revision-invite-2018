@@ -287,7 +287,7 @@
         offset = easeOut(0, 1, ((t % 1) - 0.25) * 2) - easeIn(1, 0, ((t % 1)) * 2 - 1);
         offset = Math.pow(offset, 5);
         this.textball.material.map.offset.set(
-          offset+0.25,
+          offset + 0.25,
           -0.25);
       }
       this.textball.material.needsUpdate = true;
@@ -439,12 +439,25 @@
       }
       this.bg.material.needsUpdate = true;
 
-      this.cameraPreviousPosition.copy(this.camera.position);
-      this.camera.position.copy(position);
-      this.camera.position.add(this.cameraShakePosition);
+      const mixer = lerp(0, 1, (frame - 9650) / 100);
+
+      //this.cameraPreviousPosition.copy(this.camera.position);
+      //this.camera.position.copy(position);
+      //this.camera.position.add(this.cameraShakePosition);
+
+      this.camera.position.z = lerp(position.z, 200, mixer);
+      this.camera.position.x = lerp(position.x, 500, mixer);
+      this.camera.position.y = lerp(position.y, 100, mixer);
+
       this.camera.rotation.x += this.cameraShakeRotation.x;
       this.camera.rotation.y += this.cameraShakeRotation.y;
       this.camera.rotation.z += this.cameraShakeRotation.z;
+
+      if (frame > 9961) {
+        this.camera.position.x = 0;
+        this.camera.position.y = 0;
+        this.camera.position.z = 50;
+      }
 
       demo.nm.nodes.bloom.opacity = 0;
     }
