@@ -102,7 +102,7 @@
 
       const scale = easeIn(1, 100, t5);
       this.ctx.translate(easeIn(0, 55, t5), 0);
-      this.ctx.scale(scale, scale);
+      //this.ctx.scale(scale, scale);
 
       this.ctx.save();
       this.ctx.fillStyle = '#77e15d';
@@ -310,8 +310,8 @@
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
       this.ctx.save();
-      this.ctx.scale(GU, GU);
-      this.ctx.translate(8, 4.5);
+      this.ctx.scale(0.4*GU, 0.4*GU);
+      this.ctx.translate(14, 7.5);
       //this.ctx.rotate(this.cameraR);
       this.ctx.translate(this.cameraX, this.cameraY);
 
@@ -430,8 +430,8 @@
       }
 
       this.ctx.rotate(cameraRotate);
-      this.ctx.translate(cameraX, cameraY);
-      this.ctx.scale(cameraZoom, cameraZoom);
+      //this.ctx.translate(cameraX, cameraY);
+      //this.ctx.scale(cameraZoom, cameraZoom);
 
       if (BEAN >= 3624) {
         this.ctx.fillStyle = '#77e15d';
