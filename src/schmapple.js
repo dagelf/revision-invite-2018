@@ -177,8 +177,7 @@
         for (let i = 0; i < this.texts.length; i++) {
           const row = this.texts[i];
           row.offset = this.random() * 20;
-          row.speed = 0.1 + Math.pow(this.random(), 4) * 2;
-          row.speed *= 0.5;
+          row.speed = 0.4 + Math.pow(this.random(), 4) * 2;
           row.blinkOffset = i;
 
           let accumulatedWidth = 0;
@@ -317,6 +316,10 @@
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
       this.ctx.restore();
       this.ctx.save();
+
+      const mixer = lerp(1.0, 0.6, (this.frame - 1200) / 80);
+      this.ctx.scale(mixer, 1.0);
+
       const shakeT = lerp(0, 1, (this.frame - FRAME_FOR_BEAN(624)) / (
         FRAME_FOR_BEAN(624 + 48 - 24) - FRAME_FOR_BEAN(624)));
       const amount = 2 * easeOut(0, 1, shakeT) * easeIn(1, 0, shakeT);
@@ -391,11 +394,11 @@
 
       let widthT = (this.frame - FRAME_FOR_BEAN(408 + beanOffset)) / (FRAME_FOR_BEAN(408 + 12 + beanOffset) - FRAME_FOR_BEAN(408 + beanOffset));
       let widthT2 = (this.frame - FRAME_FOR_BEAN(408 + 12 + beanOffset)) / (
-          FRAME_FOR_BEAN(408 + 12 + 6 + beanOffset) - FRAME_FOR_BEAN(
-            408 + 12 + beanOffset));
-      let widthT3 = (this.frame - FRAME_FOR_BEAN(408 + 12 +  6+beanOffset)) / (
-          FRAME_FOR_BEAN(408 + 12 + 12 + beanOffset) - FRAME_FOR_BEAN(
-            408 + 12 + 6 + beanOffset));
+        FRAME_FOR_BEAN(408 + 12 + 6 + beanOffset) - FRAME_FOR_BEAN(
+          408 + 12 + beanOffset));
+      let widthT3 = (this.frame - FRAME_FOR_BEAN(408 + 12 + 6 + beanOffset)) / (
+        FRAME_FOR_BEAN(408 + 12 + 12 + beanOffset) - FRAME_FOR_BEAN(
+          408 + 12 + 6 + beanOffset));
       let outerWidth = easeOut(31, 26, widthT);
       let innerWidth = easeOut(21, 26, widthT);
       let secondSmallestWidth = easeOut(17.6, 5, widthT2);
