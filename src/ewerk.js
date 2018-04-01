@@ -371,18 +371,19 @@
           lerp(10, 20, (frame - frame11) / 10)
         );
         this.camera.lookAt(new THREE.Vector3(0, 0, 0));
-      } else if (frame <= frame13) {
-        const localT = (frame - frame12) / 10;
+      } else {
+        const localT = (frame - frame12) / 100;
         this.camera.position.set(
           lerp(5, 0, localT),
-          lerp(150, 400, localT),
-          lerp(20, 100, localT)
+          lerp(150, 1200, localT),
+          lerp(20, 200, localT)
         );
         const scale = easeIn(2.2, 1.7, (frame - frame12 + 10) / 10);
         this.globeContainer.scale.set(scale, scale, scale);
         this.globeContainer.rotation.y = 3.4 - frame / 1000;
         this.camera.lookAt(new THREE.Vector3(0, 0, 0));
-      } else {
+      }
+      /*
         const localT = (frame - frame13) / 10;
         this.camera.position.set(
           lerp(lerp(0, 0, localT), 0, localT / 60),
@@ -404,6 +405,7 @@
         this.globeOutline.material.opacity = easeIn(1, 0, (frame - 11315) / 10);
         this.revisionLogo.material.opacity = lerp(0, 1, (frame - 11315) / 10);
       }
+      */
 
       this.globeOutline.position.copy(this.globe.position);
       this.globeOutline.position.y -= 500;
