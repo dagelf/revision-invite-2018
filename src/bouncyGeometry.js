@@ -780,10 +780,12 @@
         45, .1, (frame - cameraFovStartFrame) / (cameraFovEndFrame - cameraFovStartFrame)
       );
 
+      const cameraT = (frame - FRAME_FOR_BEAN(3201)) / (particlesEndFrame - FRAME_FOR_BEAN(3201));
+
       this.camera.fov = cameraFov;
       this.camera.updateProjectionMatrix();
       this.camera.position.x = 0;
-      this.camera.position.y = 0;
+      this.camera.position.y = lerp(0, 15, cameraT);
       this.camera.position.z = -60;
       this.camera.lookAt(new THREE.Vector3(0, 0, -80));
     }
