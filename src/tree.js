@@ -470,29 +470,17 @@
           lerp(1.5, 3, t),
           lerp(0, 0, t)
         );
-      } else if (BEAN < 87.3125 * 48) {
+      } else {
         const t = (frame - FRAME_FOR_BEAN(86.3125 * 48)) / (FRAME_FOR_BEAN(87.3125 * 48) - FRAME_FOR_BEAN(86.3125 * 48));
         cameraPosition.set(
-          0,
-          lerp(-4, -3, t),
-          lerp(13, 11.5, t)
+          lerp(6, 15, t),
+          lerp(3.5, 8, t),
+          lerp(10, -2, t)
         );
         cameraLookAt.set(
-          0,
-          lerp(-3.5, -0.5, t),
-          0
-        );
-      } else {
-        const t = (frame - FRAME_FOR_BEAN(87.3125 * 48)) / (FRAME_FOR_BEAN(88.5 * 48) - FRAME_FOR_BEAN(87.3125 * 48));
-        cameraPosition.set(
-          lerp(-0.95, 0, t),
-          lerp(1.15, 0, t),
-          lerp(3, 15, t)
-        );
-        cameraLookAt.set(
-          lerp(6.25, 0, t),
-          lerp(-2, 0, t),
-          lerp(-5, 0, t)
+          easeOut(2, 0, t),
+          lerp(3, 0, t),
+          lerp(0, 0, t)
         );
       }
 
@@ -563,6 +551,7 @@
     }
 
     render(renderer) {
+      renderer.setClearColor(new THREE.Color(0x000000));
       this.ps.render();
       const offsetX = Math.sin(this.rotation) * 0.15;
       const offsetY = -Math.cos(this.rotation) * 0.15;
