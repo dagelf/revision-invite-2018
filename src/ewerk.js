@@ -271,103 +271,57 @@
         this.camera.lookAt(new THREE.Vector3(0, -200, 0));
       } else if (frame <= frame2) {
         this.camera.position.set(
-          lerp(0, 0, (frame - frame2 + 10) / 10),
-          lerp(900, 390, (frame - frame2 + 10) / 10),
-          lerp(400, 110, (frame - frame2 + 10) / 10)
+          lerp(0, -400, (frame - frame2 + 50) / 50),
+          lerp(900, 800, (frame - frame2 + 50) / 50),
+          lerp(400, 400, (frame - frame2 + 50) / 50)
         );
 
         this.camera.lookAt(new THREE.Vector3(0, 0, 0));
         this.globeContainer.rotation.x = -Math.PI / 2 + .8;
-        this.globeContainer.rotation.x += lerp(0, .3, (frame - frame2 + 10) / 10);
-        const scale = lerp(1, 1.7, (frame - frame2 + 10) / 10);
+        this.globeContainer.rotation.x += lerp(0, .3, (frame - frame2 + 50) / 50);
+        const scale = 1;
         this.globeContainer.scale.set(scale, scale, scale);
 
         this.camera.lookAt(new THREE.Vector3(0, -200, 0));
       } else if (frame <= frame3) {
         this.camera.position.set(
-          lerp(0, 122.27, (frame - frame3 + 10) / 10),
-          lerp(390, 91.84, (frame - frame3 + 10) / 10),
-          lerp(110, 90.38, (frame - frame3 + 10) / 10)
+          lerp(-400, 88, (frame - frame3 + 40) / 40),
+          lerp(800, -16, (frame - frame3 + 40) / 40),
+          lerp(400, 0, (frame - frame3 + 40) / 40)
         );
-        const scale = easeIn(1.7, 2.2, (frame - frame3 + 40) / 40);
+        const scale = easeIn(1.7, 1.8, (frame - frame3 + 40) / 40);
         this.globeContainer.scale.set(scale, scale, scale);
         this.camera.lookAt(new THREE.Vector3(0, 0, 0));
       } else if (frame <= frame4) {
         this.camera.position.set(
-          lerp(
-            lerp(122.27, 127, (frame - frame3) / (frame4 - frame3)),
-            30,
-            (frame - frame4 + 10) / 10
-          ),
-          lerp(
-            lerp(91.84, 82, (frame - frame3) / (frame4 - frame3)),
-            15,
-            (frame - frame4 + 10) / 10
-          ),
-          lerp(
-            lerp(90.38, 86, (frame - frame3) / (frame4 - frame3)),
-            10,
-            (frame - frame4 + 10) / 10
-          )
+          lerp(88, 88, (frame - frame3) / (frame4 - frame3)),
+          lerp(-16, 2, (frame - frame3) / (frame4 - frame3)),
+          0
         );
         this.camera.lookAt(new THREE.Vector3(0, 0, 0));
       } else if (frame <= frame5) {
         this.camera.position.set(
-          lerp(
-            lerp(30, 30, (frame - frame4) / (frame5 - frame4)),
-            16,
-            (frame - frame5 + 10) / 10
-          ),
-          lerp(
-            lerp(15, 14, (frame - frame4) / (frame5 - frame4)),
-            5,
-            (frame - frame5 + 10) / 10
-          ),
-          lerp(
-            lerp(10, 9, (frame - frame4) / (frame5 - frame4)),
-            1,
-            (frame - frame5 + 10) / 10
-          )
+          lerp(88, 88, (frame - frame4) / (frame5 - frame4)),
+          lerp(2, 14, (frame - frame4) / (frame5 - frame4)),
+          lerp(0, 9, (frame - frame4) / (frame5 - frame4))
         );
         this.camera.lookAt(new THREE.Vector3(
           lerp(0, -4, (frame - frame5 + 10) / 10),
           lerp(0, -1.5, (frame - frame5 + 10) / 10),
           0
         ));
-      } else if (frame <= frame6) {
-        const t = (frame - 531) / (563 - 531);
+      } else if (frame <= frame7) {
         this.camera.position.set(
-          lerp(
-            lerp(16, 15, (frame - frame5) / (frame6 - frame5)),
-            0,
-            t
-          ),
-          lerp(
-            lerp(5, 4, (frame - frame5) / (frame6 - frame5)),
-            0.5,
-            t) + easeOut(0, -3.5, t * 2) + lerp(0, 3.5, t),
-          lerp(1, 1, t) + easeOut(0, 1.6, t) + easeIn(0, -1.6, t));
+          lerp(-40, -17, (frame - frame5) / (frame7 - frame5)),
+          lerp(34, 23, (frame - frame5) / (frame7 - frame5)),
+          lerp(40, 25, (frame - frame5) / (frame7 - frame5))
+        );
         this.camera.lookAt(
           new THREE.Vector3(
-            lerp(-4, -5.3, t),
-            lerp(-1.5, 1.1, t),
-            lerp(0, 0.42, t)
+            5,
+            1,
+            4.8
           ));
-      } else if (frame <= frame7) {
-        const x = -3.2796042561328207;
-        const y = 1.08649525980141;
-        const z = 0.3240734065472578;
-
-        this.camera.position.set(
-          lerp(
-            lerp(0, -0.5, (frame - frame6) / (frame7 - frame6)),
-            x,
-            (frame - frame7 + 10) / 9
-          ),
-          lerp(0.5, y, (frame - frame7 + 10) / 10),
-          lerp(1, z, (frame - frame7 + 10) / 10));
-        this.camera.lookAt(
-          new THREE.Vector3(x - 2, y - .0, z + 0.01));
       } else if (frame <= frame9) {
         this.camera.position.set(
           lerp(
